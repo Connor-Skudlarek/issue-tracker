@@ -1,8 +1,12 @@
 import "../styles/LandingPage.css";
+import LoginForm from "../components/LoginForm";
+
 function LandingPage() {
   return (
     <div className="LandingPage">
-        Hello World!
+      <div className="form-container">
+        <LoginForm />
+      </div>
     </div>
   );
 }
