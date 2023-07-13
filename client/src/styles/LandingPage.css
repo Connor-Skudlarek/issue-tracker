@@ -1,0 +1,50 @@
+.LandingPage-app-title {
+  font-size: 1.5rem;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 200px;
+  width: 50%;
+  text-align: center;
+}
+
+.LandingPage-call-to-action {
+  font-size: 1.5rem;
+  margin-left: 40%;
+  margin-right: 25%;
+  width: 50%;
+}
+
+.LandingPage-try-catch-cleverness {
+  margin: 30px;
+  margin-left: 5%;
+}
+
+.LandingPage-form-container {
+  margin-left: 40%;
+  width: 20%;
+}
+
+.LandingPage-form-container input {
+  width: 100%;
+  margin: 10px;
+  padding: 5px;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  background-image: url("https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_1280.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.25;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
