@@ -24,12 +24,11 @@ mongoose.connection.on("connected", () => {
 });
 
 // Note to self or dev: all api routes below here
-
+app.use("/", indexRouter);
 // Note to self or dev: all api routes above here
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
-app.use("/", indexRouter);
 
 app.listen(80, () => console.log("Listening on port 80"));
 
