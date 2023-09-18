@@ -1,7 +1,11 @@
 import "../styles/LandingPage.css";
+import React from "react";
 import LoginForm from "../components/LoginForm";
+import SignUpForm from "../components/SignUpForm";
 
 function LandingPage() {
+  const [showLoginForm, setShowLoginForm] = React.useState(true)
+  
   return (
     <div className="LandingPage">
       <div className="LandingPage-content-container">
@@ -20,8 +24,11 @@ function LandingPage() {
           </p>
         </div>
         <div className="LandingPage-form-container">
-          <LoginForm />
+          {showLoginForm ? <LoginForm /> : <SignUpForm />}
         </div>
+        <button onClick={() => setShowLoginForm(!showLoginForm)}>
+          {showLoginForm ? 'Click here to change to Sign Up' : 'Click here to change to Log In'}
+        </button>
       </div>
     </div>
   );
