@@ -87,7 +87,7 @@ function LoginButton() {
 
   return (
     <Button
-      className="mt-4 w-full bg-my-mint font-bold text-my-navy/100"
+      className="mt-4 w-full bg-my-mint text-my-navy/100"
       aria-disabled={pending}
     >
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-my-navy/50" />
