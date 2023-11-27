@@ -22,6 +22,7 @@ const config: Config = {
         "my-navy": "#242438",
       },
     },
+    animate: {},
     keyframes: {
       shimmer: {
         "100%": {
@@ -30,7 +31,7 @@ const config: Config = {
       },
     },
   },
-
+  variants: {},
   plugins: [require("@tailwindcss/forms")],
 };
 export default config;
