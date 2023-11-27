@@ -1,6 +1,6 @@
 import Link from "next/link";
 import NavLinks from "@/app/ui/dashboard/nav-links";
-import AcmeLogo from "@/app/ui/acme-logo";
+import WaferWizardsLogo from "@/app/ui/wafer-wizard-logo";
 import { PowerIcon } from "@heroicons/react/24/outline";
 import { signOut } from "@/auth";
 
@@ -12,7 +12,7 @@ export default function SideNav() {
         href="/"
       >
         <div className="w-32 text-white md:w-40">
-          <AcmeLogo />
+          <WaferWizardsLogo />
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
@@ -24,7 +24,11 @@ export default function SideNav() {
             await signOut();
           }}
         >
-          <button id="sign-out" aria-label="Sign Out" className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+          <button
+            id="sign-out"
+            aria-label="Sign Out"
+            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+          >
             <PowerIcon className="w-6" />
             <div className="hidden md:block">Sign Out</div>
           </button>
