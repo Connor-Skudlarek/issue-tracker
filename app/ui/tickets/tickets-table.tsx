@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { myData } from "@/app/lib/definitions";
+import Link from "next/link";
 
 export function buildTable(data: myData[]) {
   const ticketTable = (
@@ -27,10 +28,10 @@ export function buildTable(data: myData[]) {
 }
 
 function oneTicketRow(ticketObject: myData) {
-  let latestComment = ticketObject.comments[ticketObject.comments.length - 1];
+  let latestComment = ticketObject.comments[Math.floor(Math.random()*3)];
   return (
-    <tr className="lg-p4">
-      <td className="lg:p-4">{ticketObject.ticketID}</td>
+    <tr className="lg:p-4">
+      <td className="lg:p-4"><Link href={`/dashboard/tickets/${ticketObject.ticketID}`} className="text-blue-600 font-bold antialiased">{ticketObject.ticketID}</Link></td>
       <td className="lg:p-4">{ticketObject.priority}</td>
       <td className="lg:p-4">{ticketObject.description}</td>
       <td className="lg:p-4">{ticketObject.assigned}</td>
