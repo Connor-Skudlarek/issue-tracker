@@ -3,27 +3,27 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col bg-my-grey md:flex-row">
+    <main className="flex flex-col justify-center content-center bg-my-grey md:flex-row">
       <div
         id="landing-image"
-        className="flex h-screen bg-my-navy lg:w-7/12 lg:bg-my-navy"
+        className="md:h-screen bg-my-navy lg:w-7/12 lg:bg-my-navy md:p-12"
       >
         <Image
           src="/images/landing-pic.jpg"
-          className="md:w-[70%] md:rounded-lg"
-          width={512}
-          height={512}
+          className="md:rounded-lg"
+          width={1024}
+          height={1024}
           alt="8 people working on machines"
         />
       </div>
 
       <div
         id="landing-container"
-        className="flex h-fit flex-col items-center md:h-screen lg:w-5/12 lg:justify-around"
+        className="flex flex-col items-center md:h-screen lg:w-5/12 lg:justify-around"
       >
         <div id="call-to-action">
           <div className="mx-1 mt-8 flex flex-row items-center justify-center">
-            <h1 className="rounded-lg bg-my-navy p-4 text-center text-4xl font-bold text-my-mint shadow">
+            <h1 className="rounded-lg bg-my-navy p-4 text-center text-4xl font-bold text-my-mint shadow m-1">
               Wafer Wizards
             </h1>
             <Image
