@@ -1,8 +1,8 @@
 const { db } = require("@vercel/postgres");
 const {
-  tickets,
-  comments,
-  tasks,
+  ww_tickets,
+  ww_comments,
+  ww_tasks,
   ww_users,
 } = require("../app/lib/placeholder-data.js");
 const bcryptjs = require("bcryptjs");
@@ -10,7 +10,7 @@ const bcryptjs = require("bcryptjs");
 async function seedww_users(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    // Create the "tickets" table if it doesn't exist
+    // Create the "ww_users" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS ww_users (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -47,128 +47,128 @@ async function seedww_users(client) {
   }
 }
 
-async function seedtickets(client) {
+async function seedww_tickets(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-    // Create the "tickets" table if it doesn't exist
+    // Create the "ww_tickets" table if it doesn't exist
     const createTable = await client.sql`
-    CREATE TABLE IF NOT EXISTS Tickets (
+    CREATE TABLE IF NOT EXISTS ww_tickets (
       id SERIAL PRIMARY KEY,
       priority INT,
       description TEXT,
       assigned VARCHAR(255),
       status VARCHAR(255) DEFAULT 'Pending',
-      dateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      completeDate TIMESTAMP
+      dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+      completeDate TIMESTAMPTZ
   );
 `;
 
-    console.log(`Created "tickets" table`);
+    console.log(`Created "ww_tickets" table`);
 
-    // Insert data into the "tickets" table
-    const insertedtickets = await Promise.all(
-      tickets.map(
+    // Insert data into the "ww_tickets" table
+    const insertedww_tickets = await Promise.all(
+      ww_tickets.map(
         (ticket) => client.sql`
-        INSERT INTO tickets (priority, description, assigned, status, dateCreated, completeDate)
+        INSERT INTO ww_tickets (priority, description, assigned, status, dateCreated, completeDate)
         VALUES (${ticket.priority}, ${ticket.description}, ${ticket.assigned}, ${ticket.status}, ${ticket.dateCreated}, ${ticket.completeDate})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
     );
 
-    console.log(`Seeded ${insertedtickets.length} tickets`);
+    console.log(`Seeded ${insertedww_tickets.length} ww_tickets`);
 
     return {
       createTable,
-      tickets: insertedtickets,
+      ww_tickets: insertedww_tickets,
     };
   } catch (error) {
-    console.error("Error seeding tickets:", error);
+    console.error("Error seeding ww_tickets:", error);
     throw error;
   }
 }
 
-async function seedcomments(client) {
+async function seedww_comments(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-    // Create the "comments" table if it doesn't exist
+    // Create the "ww_comments" table if it doesn't exist
     const createTable = await client.sql`
-        CREATE TABLE IF NOT EXISTS Comments (
+        CREATE TABLE IF NOT EXISTS ww_comments (
             id SERIAL PRIMARY KEY,
             ticketID INT,
             taskID INT,
             ww_userID INT,
             comment TEXT,
-            dateCreated DATE,
-            FOREIGN KEY (ticketID) REFERENCES Tickets(id),
-            FOREIGN KEY (taskID) REFERENCES Tasks(id)
+            dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
+            FOREIGN KEY (taskID) REFERENCES ww_tasks(id)
         );
     `;
 
-    console.log(`Created "comments" table`);
+    console.log(`Created "ww_comments" table`);
 
-    // Insert data into the "comments" table
-    const insertedcomments = await Promise.all(
-      comments.map(
+    // Insert data into the "ww_comments" table
+    const insertedww_comments = await Promise.all(
+      ww_comments.map(
         (comment) => client.sql`
-        INSERT INTO comments (ticketID, taskID, comment, dateCreated)
+        INSERT INTO ww_comments (ticketID, taskID, comment, dateCreated)
         VALUES (${comment.ticketID}, ${comment.taskID}, ${comment.ww_userID}, ${comment.comment}, ${comment.dateCreated})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
     );
 
-    console.log(`Seeded ${insertedcomments.length} comments`);
+    console.log(`Seeded ${insertedww_comments.length} ww_comments`);
 
     return {
       createTable,
-      comments: insertedcomments,
+      ww_comments: insertedww_comments,
     };
   } catch (error) {
-    console.error("Error seeding comments:", error);
+    console.error("Error seeding ww_comments:", error);
     throw error;
   }
 }
 
-async function seedtasks(client) {
+async function seedww_tasks(client) {
   try {
-    // Create the "tasks" table if it doesn't exist
+    // Create the "ww_tasks" table if it doesn't exist
     const createTable = await client.sql`
-    CREATE TABLE IF NOT EXISTS Tasks (
+    CREATE TABLE IF NOT EXISTS ww_tasks (
       id INT PRIMARY KEY,
       ticketID INT,
       task TEXT,
       status VARCHAR(255),
-      dateCreated DATE,
-      completeDate DATE,
-      FOREIGN KEY (ticketID) REFERENCES Tickets(id)
+      dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+      completeDate TIMESTAMPTZ,
+      FOREIGN KEY (ticketID) REFERENCES ww_tickets(id)
   );  
     
     `;
 
-    console.log(`Created "tasks" table`);
+    console.log(`Created "ww_tasks" table`);
 
-    // Insert data into the "tasks" table
-    const insertedtasks = await Promise.all(
-      tasks.map(
-        (rev) => client.sql`
-        INSERT INTO tasks (month, tasks)
-        VALUES (${rev.month}, ${rev.tasks})
-        ON CONFLICT (month) DO NOTHING;
+    // Insert data into the "ww_tasks" table
+    const insertedww_tasks = await Promise.all(
+      ww_tasks.map(
+        (task) => client.sql`
+        INSERT INTO ww_tasks (ticketID, task, status, dateCreated, completeDate)
+        VALUES (${task.ticketID}, ${task.task}, ${task.status}, ${task.dateCreated}, ${task.completeDate})
+        ON CONFLICT (id) DO NOTHING;
       `,
       ),
     );
 
-    console.log(`Seeded ${insertedtasks.length} tasks`);
+    console.log(`Seeded ${insertedww_tasks.length} ww_tasks`);
 
     return {
       createTable,
-      tasks: insertedtasks,
+      ww_tasks: insertedww_tasks,
     };
   } catch (error) {
-    console.error("Error seeding tasks:", error);
+    console.error("Error seeding ww_tasks:", error);
     throw error;
   }
 }
@@ -177,9 +177,9 @@ async function main() {
   const client = await db.connect();
 
   await seedww_users(client);
-  await seedcomments(client);
-  await seedtickets(client);
-  await seedtasks(client);
+  await seedww_comments(client);
+  await seedww_tickets(client);
+  await seedww_tasks(client);
 
   await client.end();
 }
