@@ -1,41 +1,312 @@
-const ww_users = [{
+const ww_users = [
+  {
     id: "420124b2-4001-4271-9855-sec4b6a6442a",
     name: "Nick Fury",
     email: "OneEyeOpen@shield.org",
     password: "patches",
-    role: "admin"
-},
-{
+    role: "admin",
+  },
+  {
     id: "d6e15727-9fe1-4961-8c5b-ea44a9bd81aa",
     name: "Tony Stark",
     email: "thegenius@starkindustries.com",
-    password: "IAMIRONMAN",
-    role: "developer"
-},
-{
+    password: "IamIronman",
+    role: "developer",
+  },
+  {
     id: "CC27C14A-0ACF-4F4A-A6C9-D45682C144B9",
     name: "Peter Parker",
     email: "peter.parker@imadeanemail.com",
     password: "th3NextAvenger!",
-    role: "developer"
-},
-{
+    role: "developer",
+  },
+  {
     id: "126eed9c-c90c-4ef6-a4a8-fcf7408d3c66",
     name: "Steve Rogers",
     email: "OutOfTime@avengers.org",
     password: "Peggy1921",
-    role: "user"
-},
-{
+    role: "user",
+  },
+  {
     id: "13D07535-C59E-4157-A011-F8D2EF4E0CBB",
     name: "Thor",
     email: "Thor@yahoo.com",
     password: "Thor",
-    role: "user"
-}]
+    role: "user",
+  },
+];
 
-const ww_tickets = {}
+//     "Pending",
+//     "In Work",
+//     "Paused",
+//     "Under Review",
+//     "Complete",
+//     "Rejected",
 
-const ww_tasks = {}
+const ww_tickets = [
+  {
+    id: 1,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Change all 4 SHDs on tool 11",
+    assigned: "Not yet assigned",
+    status: "In Work",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(2 * 10 ** 9) + 86400,
+  },
+  {
+    id: 2,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Software upgrade on tool 20",
+    assigned: "Peter Parker",
+    status: "Under Review",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 3,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Software upgrade on tool 26",
+    assigned: "Tony Stark",
+    status: "Complete",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 4,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Error, process won't start on tool 26",
+    assigned: "Peter Parker",
+    status: "Paused",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 5,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Heaters not heating on tool 13",
+    assigned: "Peter Parker",
+    status: "Under Review",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 6,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Please help troubleshoot problem",
+    assigned: "Tony Stark",
+    status: "Rejected",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 7,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Software upgrade for Tony's CTC on tool 33",
+    assigned: "Tony Stark",
+    status: "Complete",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 8,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Stranded wafer on tool 2",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 9,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Replace LF Match on tool 9",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 10,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Remove MFC A for failure analysis on tool 4",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 11,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Add project lichen to tool 7",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 12,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Restore hazardous gases on tool 39",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    id: 13,
+    priority: Math.floor(Math.random() * 10) + 1,
+    description: "Remove cooling plate prototype on tool 14",
+    assigned: "Not yet assigned",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+];
 
-const ww_comments = {}
+const ww_tasks = [
+  {
+    ticketID: 1,
+    task: "Cool chamber, open, and clean.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 1,
+    task: "Change all SHDs, gap, heat up.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 1,
+    task: "Complete return to process checklist.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 2,
+    task: "This task for software only.",
+    status: "Under Review",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 3,
+    task: "This task for software only.",
+    status: "Complete",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 4,
+    task: "Troubleshoot cause of error.",
+    status: "Paused",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 5,
+    task: "Troubleshoot cause of heating issue.",
+    status: "Complete",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 5,
+    task: "Once cause is identified, restore tool to nominal conditions.",
+    status: "Under Review",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 6,
+    task: "I can't fix it. Help!",
+    status: "Rejected",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 7,
+    task: "Upgrade Tony's CTC. Once done, turn back over.",
+    status: "Complete",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 8,
+    task: "Confirm wafer is not broken.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 8,
+    task: "Once wafer confirmed not broken, return to the FOUP.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 8,
+    task: "Once wafer returned, inform process to collect and inspect. Can close once they are notified.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 9,
+    task: "Do not approve. Will replace LF Match. Need to add more tasks.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 10,
+    task: "Removing MFC. Hold for more tasks.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 11,
+    task: "Lichen may be delayed. Hold for now.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 12,
+    task: "Tool 39 is not yet approved to restore gases. Once it is, approve this and restore gases.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+  {
+    ticketID: 13,
+    task: "Prototype is still collecting data. Hold until this is updated.",
+    status: "Pending",
+    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+  },
+];
+
+// id INT PRIMARY KEY,
+//       ticketID INT,
+//       task TEXT,
+//       status VARCHAR(255),
+//       dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+//       completeDate TIMESTAMPTZ,
+//       FOREIGN KEY (ticketID) REFERENCES ww_tickets(id)
+
+const ww_comments = [{}];
+
+// id SERIAL PRIMARY KEY,
+//             ticketID INT,
+//             taskID INT,
+//             ww_userID INT,
+//             comment TEXT,
+//             dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+//             FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
+//             FOREIGN KEY (taskID) REFERENCES ww_tasks(id)
