@@ -13,7 +13,7 @@ async function seedww_users(client) {
     // Create the "ww_users" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS ww_users (
-        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
@@ -29,7 +29,7 @@ async function seedww_users(client) {
         const hashedPassword = await bcryptjs.hash(user.password, 10);
         return client.sql`
         INSERT INTO ww_users (id, name, email, password, role)
-        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword}, ${role})
+        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword}, ${user.role})
         ON CONFLICT (id) DO NOTHING;
       `;
       }),
@@ -55,12 +55,14 @@ async function seedww_tickets(client) {
     const createTable = await client.sql`
     CREATE TABLE IF NOT EXISTS ww_tickets (
       id SERIAL PRIMARY KEY,
+      ticketCreatedBy INT NOT NULL,
       priority INT,
       description TEXT,
       assigned VARCHAR(255),
       status VARCHAR(255) DEFAULT 'Pending',
       dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
       completeDate TIMESTAMPTZ
+      FOREIGN KEY (createdBy) REFERENCES ww_users(id)
   );
 `;
 
@@ -70,8 +72,8 @@ async function seedww_tickets(client) {
     const insertedww_tickets = await Promise.all(
       ww_tickets.map(
         (ticket) => client.sql`
-        INSERT INTO ww_tickets (priority, description, assigned, status, dateCreated, completeDate)
-        VALUES (${ticket.priority}, ${ticket.description}, ${ticket.assigned}, ${ticket.status}, ${ticket.dateCreated}, ${ticket.completeDate})
+        INSERT INTO ww_tickets (id, ticketCreatedBy, priority, description, assigned, status, dateCreated, completeDate)
+        VALUES (${ticket.id}, ${ticket.ticketCreatedBy}, ${ticket.priority}, ${ticket.description}, ${ticket.assigned}, ${ticket.status}, ${ticket.dateCreated}, ${ticket.completeDate})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
@@ -97,11 +99,12 @@ async function seedww_comments(client) {
     const createTable = await client.sql`
         CREATE TABLE IF NOT EXISTS ww_comments (
             id SERIAL PRIMARY KEY,
+            commentCreatedBy INT,
             ticketID INT,
             taskID INT,
-            ww_userID INT,
             comment TEXT,
             dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (createdBy) REFERENCES ww_users(id)
             FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
             FOREIGN KEY (taskID) REFERENCES ww_tasks(id)
         );
@@ -113,8 +116,8 @@ async function seedww_comments(client) {
     const insertedww_comments = await Promise.all(
       ww_comments.map(
         (comment) => client.sql`
-        INSERT INTO ww_comments (ticketID, taskID, comment, dateCreated)
-        VALUES (${comment.ticketID}, ${comment.taskID}, ${comment.ww_userID}, ${comment.comment}, ${comment.dateCreated})
+        INSERT INTO ww_comments (id, commentCreatedBy, ticketID, taskID, comment, dateCreated)
+        VALUES (${comment.id}, ${comment.commentCreatedBy}, ${comment.ticketID}, ${comment.taskID}, ${comment.comment}, ${comment.dateCreated})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
@@ -137,13 +140,15 @@ async function seedww_tasks(client) {
     // Create the "ww_tasks" table if it doesn't exist
     const createTable = await client.sql`
     CREATE TABLE IF NOT EXISTS ww_tasks (
-      id INT PRIMARY KEY,
+      id SERIAL PRIMARY KEY,
       ticketID INT,
+      taskCreatedBy INT,
       task TEXT,
       status VARCHAR(255),
       dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
       completeDate TIMESTAMPTZ,
       FOREIGN KEY (ticketID) REFERENCES ww_tickets(id)
+      FOREIGN KEY (createdBy) REFERENCES ww_users(id)
   );  
     
     `;
@@ -154,8 +159,8 @@ async function seedww_tasks(client) {
     const insertedww_tasks = await Promise.all(
       ww_tasks.map(
         (task) => client.sql`
-        INSERT INTO ww_tasks (ticketID, task, status, dateCreated, completeDate)
-        VALUES (${task.ticketID}, ${task.task}, ${task.status}, ${task.dateCreated}, ${task.completeDate})
+        INSERT INTO ww_tasks (id, ticketID, taskCreatedBy, task, status, dateCreated, completeDate)
+        VALUES (${task.id}, ${task.ticketID}, ${task.taskCreatedBy}, ${task.task}, ${task.status}, ${task.dateCreated}, ${task.completeDate})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
