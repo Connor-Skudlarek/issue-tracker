@@ -44,8 +44,8 @@ const ww_tickets = [
     description: "Change all 4 SHDs on tool 11",
     assigned: "Nick Fury",
     status: "In Work",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(2 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 2,
@@ -54,8 +54,8 @@ const ww_tickets = [
     description: "Software upgrade on tool 20",
     assigned: "Peter Parker",
     status: "Under Review",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 3,
@@ -64,8 +64,8 @@ const ww_tickets = [
     description: "Software upgrade on tool 26",
     assigned: "Tony Stark",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 4,
@@ -74,8 +74,8 @@ const ww_tickets = [
     description: "Error, process won't start on tool 26",
     assigned: "Peter Parker",
     status: "Paused",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 5,
@@ -84,8 +84,8 @@ const ww_tickets = [
     description: "Heaters not heating on tool 13",
     assigned: "Peter Parker",
     status: "Under Review",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 6,
@@ -94,8 +94,8 @@ const ww_tickets = [
     description: "Please help troubleshoot problem",
     assigned: "Tony Stark",
     status: "Rejected",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 7,
@@ -104,8 +104,8 @@ const ww_tickets = [
     description: "Software upgrade for Tony's CTC on tool 33",
     assigned: "Tony Stark",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 8,
@@ -114,8 +114,8 @@ const ww_tickets = [
     description: "Stranded wafer on tool 2",
     assigned: "Tony Stark",
     status: "Paused",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 9,
@@ -124,8 +124,8 @@ const ww_tickets = [
     description: "Replace LF Match on tool 9",
     assigned: "Not yet assigned",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 10,
@@ -134,8 +134,8 @@ const ww_tickets = [
     description: "Remove MFC A for failure analysis on tool 4",
     assigned: "Not yet assigned",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 11,
@@ -144,8 +144,8 @@ const ww_tickets = [
     description: "Add project lichen to tool 7",
     assigned: "Not yet assigned",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 12,
@@ -154,8 +154,8 @@ const ww_tickets = [
     description: "Restore hazardous gases on tool 39",
     assigned: "Not yet assigned",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 13,
@@ -164,8 +164,8 @@ const ww_tickets = [
     description: "Remove cooling plate prototype on tool 14",
     assigned: "Not yet assigned",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
 ];
 
@@ -176,8 +176,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Cool chamber, open, and clean.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 2,
@@ -185,8 +185,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Change all SHDs, gap, heat up.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 3,
@@ -194,8 +194,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Complete return to process checklist.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 4,
@@ -203,8 +203,8 @@ const ww_tasks = [
     taskCreatedBy: 2,
     task: "This task for software only.",
     status: "Under Review",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 5,
@@ -212,8 +212,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "This task for software only.",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 6,
@@ -221,8 +221,8 @@ const ww_tasks = [
     taskCreatedBy: 2,
     task: "Troubleshoot cause of error.",
     status: "Paused",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 7,
@@ -230,8 +230,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "Troubleshoot cause of heating issue.",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 8,
@@ -239,8 +239,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "Once cause is identified, restore tool to nominal conditions.",
     status: "Under Review",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 9,
@@ -248,8 +248,8 @@ const ww_tasks = [
     taskCreatedBy: 5,
     task: "I can't fix it. Help!",
     status: "Rejected",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 10,
@@ -257,8 +257,8 @@ const ww_tasks = [
     taskCreatedBy: 2,
     task: "Upgrade Tony's CTC. Once done, turn back over.",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 11,
@@ -266,8 +266,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "Confirm wafer is not broken.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 12,
@@ -275,8 +275,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "Once wafer confirmed not broken, return to the FOUP.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 13,
@@ -284,8 +284,8 @@ const ww_tasks = [
     taskCreatedBy: 4,
     task: "Once wafer returned, inform process to collect and inspect. Can close once they are notified.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 14,
@@ -293,8 +293,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Do not approve. Will replace LF Match. Need to add more tasks.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 15,
@@ -302,8 +302,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Removing MFC. Hold for more tasks.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 16,
@@ -311,8 +311,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Lichen may be delayed. Hold for now.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 17,
@@ -320,8 +320,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Tool 39 is not yet approved to restore gases. Once it is, approve this and restore gases.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
   {
     id: 18,
@@ -329,8 +329,8 @@ const ww_tasks = [
     taskCreatedBy: 1,
     task: "Prototype is still collecting data. Hold until this is updated.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
-    completeDate: Date.now() + Math.random(5 * 10 ** 9) + 86400,
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
+    completeDate: new Date(Date.now() + Math.floor(Math.random(5 * 10 ** 7) + 86400)).toISOString(),
   },
 ];
 
@@ -349,7 +349,7 @@ const ww_comments = [
     ticketID: 1,
     taskID: 1,
     comment: "Starting this.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 2,
@@ -357,7 +357,7 @@ const ww_comments = [
     ticketID: 1,
     taskID: 1,
     comment: "Cooled chamber, opened, and cleaned.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 3,
@@ -365,7 +365,7 @@ const ww_comments = [
     ticketID: 1,
     taskID: 2,
     comment: "Starting on SHD removal.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 4,
@@ -373,7 +373,7 @@ const ww_comments = [
     ticketID: 2,
     taskID: 1,
     comment: "Believe this is done now, just waiting on review.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 5,
@@ -381,7 +381,7 @@ const ww_comments = [
     ticketID: 3,
     taskID: 1,
     comment: "Working on it.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 6,
@@ -389,7 +389,7 @@ const ww_comments = [
     ticketID: 3,
     taskID: 1,
     comment: "Easily handled. Informed Thor.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 7,
@@ -398,7 +398,7 @@ const ww_comments = [
     taskID: 1,
     comment:
       "I think I figured this out, but will look at it again after I get back.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 8,
@@ -407,7 +407,7 @@ const ww_comments = [
     taskID: 1,
     comment:
       "Looks like an easy fix. I switched it to be on when true. Mr. Stark will review.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 9,
@@ -415,7 +415,7 @@ const ww_comments = [
     ticketID: 5,
     taskID: 2,
     comment: "Set to under review for now.",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 10,
@@ -423,7 +423,7 @@ const ww_comments = [
     taskID: 9,
     task: "I can't fix it. Help!",
     status: "Rejected",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 11,
@@ -431,7 +431,7 @@ const ww_comments = [
     taskID: 10,
     task: "Upgrade Tony's CTC. Once done, turn back over.",
     status: "Complete",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 12,
@@ -439,7 +439,7 @@ const ww_comments = [
     taskID: 11,
     task: "Confirm wafer is not broken.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 13,
@@ -447,7 +447,7 @@ const ww_comments = [
     taskID: 12,
     task: "Once wafer confirmed not broken, return to the FOUP.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 14,
@@ -455,7 +455,7 @@ const ww_comments = [
     taskID: 13,
     task: "Once wafer returned, inform process to collect and inspect. Can close once they are notified.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 15,
@@ -463,7 +463,7 @@ const ww_comments = [
     taskID: 14,
     task: "Do not approve. Will replace LF Match. Need to add more tasks.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 16,
@@ -471,7 +471,7 @@ const ww_comments = [
     taskID: 15,
     task: "Removing MFC. Hold for more tasks.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 17,
@@ -479,7 +479,7 @@ const ww_comments = [
     taskID: 16,
     task: "Lichen may be delayed. Hold for now.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 18,
@@ -487,7 +487,7 @@ const ww_comments = [
     taskID: 17,
     task: "Tool 39 is not yet approved to restore gases. Once it is, approve this and restore gases.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
   {
     id: 19,
@@ -495,7 +495,7 @@ const ww_comments = [
     taskID: 18,
     task: "Prototype is still collecting data. Hold until this is updated.",
     status: "Pending",
-    dateCreated: Date.now() - Math.random(2 * 10 ** 9),
+    dateCreated: new Date(Date.now() - Math.floor(Math.random(2 * 10 ** 7))).toISOString(),
   },
 ];
 
@@ -507,3 +507,9 @@ const ww_comments = [
 //             dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
 //             FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
 //             FOREIGN KEY (taskID) REFERENCES ww_tasks(id)
+module.exports = {
+  ww_users,
+  ww_tickets,
+  ww_tasks,
+  ww_comments,
+};

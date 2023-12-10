@@ -4,7 +4,7 @@ const {
   ww_comments,
   ww_tasks,
   ww_users,
-} = require("../app/lib/placeholder-data.js");
+} = require("./placeholder-data.js");
 const bcryptjs = require("bcryptjs");
 
 async function seedww_users(client) {
@@ -61,8 +61,8 @@ async function seedww_tickets(client) {
       assigned VARCHAR(255),
       status VARCHAR(255) DEFAULT 'Pending',
       dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-      completeDate TIMESTAMPTZ
-      FOREIGN KEY (createdBy) REFERENCES ww_users(id)
+      completeDate TIMESTAMPTZ,
+      FOREIGN KEY (ticketCreatedBy) REFERENCES ww_users(id)
   );
 `;
 
@@ -104,7 +104,7 @@ async function seedww_comments(client) {
             taskID INT,
             comment TEXT,
             dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (createdBy) REFERENCES ww_users(id)
+            FOREIGN KEY (commentCreatedBy) REFERENCES ww_users(id),
             FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
             FOREIGN KEY (taskID) REFERENCES ww_tasks(id)
         );
@@ -147,8 +147,8 @@ async function seedww_tasks(client) {
       status VARCHAR(255),
       dateCreated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
       completeDate TIMESTAMPTZ,
-      FOREIGN KEY (ticketID) REFERENCES ww_tickets(id)
-      FOREIGN KEY (createdBy) REFERENCES ww_users(id)
+      FOREIGN KEY (ticketID) REFERENCES ww_tickets(id),
+      FOREIGN KEY (taskCreatedBy) REFERENCES ww_users(id)
   );  
     
     `;
@@ -171,7 +171,7 @@ async function seedww_tasks(client) {
     return {
       createTable,
       ww_tasks: insertedww_tasks,
-    };
+    }; 
   } catch (error) {
     console.error("Error seeding ww_tasks:", error);
     throw error;
@@ -182,9 +182,9 @@ async function main() {
   const client = await db.connect();
 
   await seedww_users(client);
-  await seedww_comments(client);
   await seedww_tickets(client);
   await seedww_tasks(client);
+  await seedww_comments(client);
 
   await client.end();
 }
