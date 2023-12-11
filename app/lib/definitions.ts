@@ -53,3 +53,35 @@ export type ww_comment = {
   comment: string;
   dateCreated: number;
 };
+
+export type newUser = {
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+};
+
+export type newTicket = {
+  ticketCreatedBy: number;
+  priority: number;
+  description: string;
+  assigned: string;
+  status: string;
+  dateCreated: number;
+  completeDate: number | null;
+};
+
+export type newTask = {
+  ticketID: number;
+  taskCreatedBy: number;
+  task: string;
+  dateCreated: number;
+};
+
+export type newComment = {
+  commentCreatedBy: number;
+  ticketID: number;
+  taskID: number;
+  comment: string;
+  dateCreated: number;
+};
