@@ -12,7 +12,7 @@ export function buildTable(data: myData[]) {
           <th>Description</th>
           <th>Assigned To</th>
           <th>Status</th>
-          <th className="text-left px-4">Latest Comment</th>
+          <th className="px-4 text-left">Latest Comment</th>
           <th>Date Created</th>
           <th className="rounded-tr-lg">Complete Date</th>
         </tr>
@@ -28,18 +28,25 @@ export function buildTable(data: myData[]) {
 }
 
 function oneTicketRow(ticketObject: myData) {
-  let latestComment = ticketObject.comments[Math.floor(Math.random()*4)];
-  if(latestComment ? latestComment.length > 60 : false){
-    latestComment = latestComment.slice(0, 60) + "[...]"
+  let latestComment = ticketObject.comments[Math.floor(Math.random() * 4)];
+  if (latestComment ? latestComment.length > 60 : false) {
+    latestComment = latestComment.slice(0, 60) + "[...]";
   }
   return (
     <tr className="lg:p-2">
-      <td className="px-1 md:py-1 lg:py-2"><Link href={`/dashboard/tickets/${ticketObject.ticketID}`} className="text-blue-600 font-bold antialiased">{ticketObject.ticketID}</Link></td>
+      <td className="px-1 md:py-1 lg:py-2">
+        <Link
+          href={`/dashboard/tickets/${ticketObject.ticketID}`}
+          className="font-bold text-blue-600 antialiased"
+        >
+          {ticketObject.ticketID}
+        </Link>
+      </td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.priority}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.description}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.assigned}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.status}</td>
-      <td className="px-1 md:py-1 lg:py-2 text-left">{latestComment}</td>
+      <td className="px-1 text-left md:py-1 lg:py-2">{latestComment}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.dateCreated}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.completeDate}</td>
     </tr>
