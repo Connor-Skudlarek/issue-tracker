@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import { myData } from "@/app/lib/definitions";
+import { myData, newTicket, ww_ticket } from "@/app/lib/definitions";
+import {z} from "zod";
 import Link from "next/link";
 
 export function buildTable(data: myData[]) {
