@@ -20,14 +20,21 @@ const TicketSchema = z.object({
     "Complete",
     "Rejected",
   ]),
-  comments: z.string(), // This may need to be looked at
   dateCreated: z.string(), // This might be default created by Postgres
   completeDate: z.string(), // Same for this
 });
 
 export async function createNewTicket(formData: FormData) {
-  "use server"
+  "use server";
   console.log(formData);
+  const { submittedBy, priority, description, completeDate } =
+    Object.fromEntries(formData.entries());
+  const assigned = "Not yet assigned";
+  const status = "Pending";
+  const dateCreated = new Date(Date.now()).toISOString();
+  await sql`
+  INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
+  VALUES ${submittedBy}, ${priority}, ${description}, ${assigned}, ${status}, ${dateCreated}, ${completeDate}`;
 }
 
 export async function createNewComment(commentDetails: {}) {
