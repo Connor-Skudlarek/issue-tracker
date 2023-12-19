@@ -29,12 +29,24 @@ export async function createNewTicket(formData: FormData) {
   console.log(formData);
   const [submittedBy, priority, description, completeDate] =
     Array.from(formData);
+  console.log(
+    submittedBy,
+    priority,
+    description,
+    completeDate,
+    typeof submittedBy,
+    typeof priority,
+    typeof description,
+    typeof completeDate,
+  );
   const assigned = "Not yet assigned";
   const status = "Pending";
   const dateCreated = new Date(Date.now()).toISOString();
   await sql`
   INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
-  VALUES (${submittedBy.toString()}, ${priority.toString()}, ${description.toString()}, ${assigned}, ${status}, ${dateCreated}, ${completeDate.toString()})
+  VALUES (${parseInt(submittedBy[0])}, ${parseInt(priority[0])}, ${
+    description[0]
+  }, ${assigned}, ${status}, ${dateCreated}, ${completeDate[0]})
   `;
 }
 
