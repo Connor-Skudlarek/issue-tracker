@@ -27,7 +27,7 @@ const TicketSchema = z.object({
 export async function createNewTicket(formData: FormData) {
   "use server";
   console.log(formData);
-  const [submittedBy, priority, description, completeDate] =
+  const [[, submittedBy], [, priority], [, description], [, completeDate]] =
     Array.from(formData);
   console.log(
     submittedBy,
@@ -44,9 +44,9 @@ export async function createNewTicket(formData: FormData) {
   const dateCreated = new Date(Date.now()).toISOString();
   await sql`
   INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
-  VALUES (${submittedBy[1]}, ${priority[1]}, ${
-    description[1]
-  }, ${assigned}, ${status}, ${dateCreated}, ${completeDate[1] + ":00Z"})
+  VALUES (${submittedBy}, ${priority}, ${description}, ${assigned}, ${status}, ${dateCreated}, ${
+    completeDate + ":00Z"
+  })
   `;
 }
 
