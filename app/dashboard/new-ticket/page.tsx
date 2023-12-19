@@ -1,10 +1,12 @@
 import { createNewTicket } from "../../lib/tickets/new-ticket";
 import { redirect } from "next/navigation";
+
+async function postNewTicket(formData: FormData) {
+  await createNewTicket(formData);
+  redirect("/dashboard");
+}
+
 export default function page() {
-  async function postNewTicket(formData: FormData) {
-    await createNewTicket(formData);
-    redirect("/dashboard");
-  }
   return (
     <div>
       This is where individual tickets can be submitted.
