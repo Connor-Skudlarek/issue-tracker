@@ -33,7 +33,7 @@ export async function createNewTicket(formData: FormData) {
   const status = "Pending";
   const dateCreated = new Date(Date.now()).toISOString();
   await sql`
-  INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate),
+  INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
   VALUES (${submittedBy.toString()}, ${priority.toString()}, ${description.toString()}, ${assigned}, ${status}, ${dateCreated}, ${completeDate.toString()})
   `;
 }
