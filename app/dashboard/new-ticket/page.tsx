@@ -10,27 +10,27 @@ export default function page() {
         <fieldset>
           <legend>Priority level: </legend>
           <div id="priority">
-            <input type="radio" value="1" id="P1" />
+            <input type="radio" value="1" id="P1" name="priority" />
             <label htmlFor="P1">
               1—Critical {"(needs immediate attention and problem is: "}
               <span className="font-bold">UNKNOWN{")"}</span>
             </label>
-            <input type="radio" value="2" id="P2" />
+            <input type="radio" value="2" id="P2" name="priority" />
             <label htmlFor="P2">
               2—High {"(needs immediate attention and problem is: "}
               <span className="font-bold">KNOWN{")"}</span>
             </label>
 
-            <input type="radio" value="3" id="P3" />
+            <input type="radio" value="3" id="P3" name="priority" />
             <label htmlFor="P3">
               3—Moderate {"(needs resources as available—time sensitive)"}
             </label>
 
-            <input type="radio" value="4" id="P4" />
+            <input type="radio" value="4" id="P4" name="priority" />
             <label htmlFor="P4">
               4—Low {"(needs resources as available—time irrelevant)"}
             </label>
-            <input type="radio" value="5" id="P5" />
+            <input type="radio" value="5" id="P5" name="priority" />
             <label htmlFor="P5">
               5—Unclear/Exploratory{" "}
               {"(issue not explored enough to prioritize)"}
