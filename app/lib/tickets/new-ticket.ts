@@ -39,15 +39,15 @@ export async function createNewTicket(formData: FormData) {
     typeof description,
     typeof completeDate,
   );
-  // const assigned = "Not yet assigned";
-  // const status = "Pending";
-  // const dateCreated = new Date(Date.now()).toISOString();
-  // await sql`
-  // INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
-  // VALUES (${submittedBy}, ${priority}, ${description}, ${assigned}, ${status}, ${dateCreated}, ${
-  //   completeDate + ":00Z"
-  // })
-  // `;
+  const assigned = "Not yet assigned";
+  const status = "Pending";
+  const dateCreated = new Date(Date.now()).toISOString();
+  await sql`
+  INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
+  VALUES (${submittedBy.toString()}, ${priority.toString()}, ${description.toString()}, ${assigned}, ${status}, ${dateCreated}, ${
+    completeDate.toString() + ":00Z"
+  })
+  `;
 }
 
 export async function createNewComment(commentDetails: {}) {
