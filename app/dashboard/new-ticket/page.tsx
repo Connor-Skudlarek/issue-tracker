@@ -2,6 +2,7 @@ import { createNewTicket } from "../../lib/tickets/new-ticket";
 import { redirect } from "next/navigation";
 
 async function postNewTicket(formData: FormData) {
+  "use server";
   await createNewTicket(formData);
   redirect("/dashboard");
 }
