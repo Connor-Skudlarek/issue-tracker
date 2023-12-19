@@ -1,10 +1,14 @@
 import { createNewTicket } from "../../lib/tickets/new-ticket";
-
+import { redirect } from "next/navigation";
 export default function page() {
+  async function postNewTicket(formData: FormData) {
+    await createNewTicket(formData);
+    redirect("/dashboard");
+  }
   return (
     <div>
       This is where individual tickets can be submitted.
-      <form action={createNewTicket} className="flex flex-col">
+      <form action={postNewTicket} className="flex flex-col">
         <label htmlFor="submittedBy">User ID number: </label>
         <input id="submittedBy" name="submittedBy" type="number" />
         <fieldset>
