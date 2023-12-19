@@ -8,7 +8,7 @@ let tickets = buildTable(myFakeData);
 export default function Page() {
   return (
     <div className="">
-      <div id="all-tickets" className="overflow-auto relative rounded-lg p-4">
+      <div id="all-tickets" className="overflow-auto relative rounded-lg p-2">
         {tickets}
       </div>
     </div>
