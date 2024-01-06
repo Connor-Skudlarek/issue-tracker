@@ -1,9 +1,8 @@
 import { Fragment } from "react";
-import { myData, newTicket, ww_ticket } from "@/app/lib/definitions";
-import {z} from "zod";
+import { ww_ticket } from "@/app/lib/definitions";
 import Link from "next/link";
 
-export function buildTable(data: myData[]) {
+export function buildTable(data: ww_ticket[]) {
   const ticketTable = (
     <table className="h-[100%] w-[100%] table-auto bg-my-mint/[30%] p-4 text-center">
       <thead className="h-12 rounded-lg bg-my-navy text-my-grey">
@@ -13,7 +12,6 @@ export function buildTable(data: myData[]) {
           <th>Description</th>
           <th>Assigned To</th>
           <th>Status</th>
-          <th className="px-4 text-left">Latest Comment</th>
           <th>Date Created</th>
           <th className="rounded-tr-lg">Complete Date</th>
         </tr>
@@ -28,26 +26,21 @@ export function buildTable(data: myData[]) {
   return ticketTable;
 }
 
-function oneTicketRow(ticketObject: myData) {
-  let latestComment = ticketObject.comments[Math.floor(Math.random() * 4)];
-  if (latestComment ? latestComment.length > 60 : false) {
-    latestComment = latestComment.slice(0, 60) + "[...]";
-  }
+function oneTicketRow(ticketObject: ww_ticket) {
   return (
     <tr className="lg:p-2">
       <td className="px-1 md:py-1 lg:py-2">
         <Link
-          href={`/dashboard/tickets/${ticketObject.ticketID}`}
+          href={`/dashboard/tickets/${ticketObject.id}`}
           className="font-bold text-blue-600 antialiased"
         >
-          {ticketObject.ticketID}
+          {ticketObject.id}
         </Link>
       </td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.priority}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.description}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.assigned}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.status}</td>
-      <td className="px-1 text-left md:py-1 lg:py-2">{latestComment}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.dateCreated}</td>
       <td className="px-1 md:py-1 lg:py-2">{ticketObject.completeDate}</td>
     </tr>
