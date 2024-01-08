@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import { getFakeData } from "@/app/lib/utils";
 import { buildTable } from "@/app/ui/tickets/tickets-table";
+import { fetchTickets } from "@/app/lib/database/get-data";
 
-let myFakeData = getFakeData();
-let tickets = buildTable(myFakeData);
+let ticketData = await fetchTickets();
+let tickets = buildTable(ticketData);
+
 
 export default function Page() {
   return (

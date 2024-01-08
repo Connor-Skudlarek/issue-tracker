@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { z } from "zod";
 import { newTicket } from "../definitions";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 const TicketSchema = z.object({
   id: z.string(),
@@ -51,6 +52,8 @@ export async function createNewTicket(formData: FormData) {
   INSERT INTO ww_tickets (Ticketcreatedby, Priority, Description, Assigned, Status, Datecreated, Completedate)
   VALUES (${submittedBy}, ${priority}, ${description}, ${assigned}, ${status}, ${dateCreated}, ${completeDate})
   `;
+  console.log("Path revalidated")
+  revalidatePath("/dashboard/tickets")
 }
 
 export async function createNewComment(commentDetails: {}) {
